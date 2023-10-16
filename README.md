@@ -28,12 +28,12 @@ Aplicação Mobile desenvolvido com React Native para conclusão de nota do 2° 
 
 | Código | Nome                              | Descrição                                                                                                      |
 | :----: | :-------------------------------: | :-------------------------------------------------------------------------------------------------------------: |
-| RN1    | **Validação de Vagas:**           | As vagas de emprego devem ser validadas antes de se tornarem visíveis para os candidatos, com processos eficientes adaptados para dispositivos móveis. |
-| RN2    | **Limite de Candidaturas:**          | O aplicativo móvel pode implementar um limite diário ou semanal para o número de vagas a que os usuários podem se candidatar para promover candidaturas mais qualificadas. |
-| RN3    | **Política Anti-Spam:**       | Mecanismos eficazes de detecção e prevenção de spam devem ser incorporados à aplicação mobile. |
-| RN4    | **Tempo de Exibição de Vagas:**     | As vagas de emprego devem permanecer visíveis por um período mínimo, proporcionando uma exposição adequada para os candidatos. |
-| RN5    | **Privacidade do Usuário:**         | A aplicação móvel deve aderir a regulamentações de privacidade, garantindo proteção e não compartilhamento indevido de informações pessoais. |
-| RN6    | **Atualização de Vagas:**            | Empregadores devem ser incentivados a manter informações de vagas atualizadas através de notificações push e lembretes amigáveis. |
+| RN1    | **Validação de Vagas**           | As vagas de emprego devem ser validadas antes de se tornarem visíveis para os candidatos, com processos eficientes adaptados para dispositivos móveis. |
+| RN2    | **Limite de Candidaturas**          | O aplicativo móvel pode implementar um limite diário ou semanal para o número de vagas a que os usuários podem se candidatar para promover candidaturas mais qualificadas. |
+| RN3    | **Política Anti-Spam**       | Mecanismos eficazes de detecção e prevenção de spam devem ser incorporados à aplicação mobile. |
+| RN4    | **Tempo de Exibição de Vagas**     | As vagas de emprego devem permanecer visíveis por um período mínimo, proporcionando uma exposição adequada para os candidatos. |
+| RN5    | **Privacidade do Usuário**         | A aplicação móvel deve aderir a regulamentações de privacidade, garantindo proteção e não compartilhamento indevido de informações pessoais. |
+| RN6    | **Atualização de Vagas**            | Empregadores devem ser incentivados a manter informações de vagas atualizadas através de notificações push e lembretes amigáveis. |
 
 ## :rotating_light: **Licença**
 
