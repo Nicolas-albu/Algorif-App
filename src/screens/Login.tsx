@@ -1,4 +1,4 @@
-import { TextInput, View } from 'react-native'
+import { TextInput, View, Image } from 'react-native'
 import { Feather } from '@expo/vector-icons'
 
 import { Container } from '../components/Container'
@@ -7,6 +7,7 @@ import { Button } from '../components/Button'
 export function Login() {
   return (
     <Container>
+      {/* <Image source={require('../assets/algorif-icon.png')} /> */}
       <View className="flex-row items-center bg-blue-100 px-2 rounded-xl">
         <Feather name="mail" size={24} color="gray" />
         <TextInput
