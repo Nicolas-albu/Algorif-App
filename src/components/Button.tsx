@@ -9,7 +9,7 @@ type ButtonProps = {
 function ButtonStyled({ title, onPress, ...rest }: ButtonProps) {
   return (
     <TouchableOpacity
-      className="py-3 px-8 border-2 rounded-lg border-green-100 bg-blue-100 active:bg-green-100 active:opacity-75 transition duration-150 ease-in-out"
+      className="py-3 px-8 border-2 rounded-lg border-green-100 bg-blue-100 active:opacity-75 transition duration-150 ease-in-out"
       onPress={onPress}
       {...rest}
     >
