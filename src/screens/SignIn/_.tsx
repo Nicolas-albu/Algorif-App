@@ -4,9 +4,9 @@ import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 
-import { Container } from '../components/Container'
-import { Button } from '../components/Button'
-import { useAuth } from '../contexts/authContext'
+import { Container } from '../../components/Controllers/Container'
+import { Button } from '../../components/Controllers/Button'
+import { useAuth } from '../../contexts/authContext'
 
 type Inputs = {
   email: string
@@ -21,7 +21,7 @@ const fieldsValidationSchema = yup.object().shape({
   password: yup.string().required('Por favor, informe sua senha'),
 })
 
-export function Login() {
+export function testando() {
   const auth = useAuth()
   const {
     register,
