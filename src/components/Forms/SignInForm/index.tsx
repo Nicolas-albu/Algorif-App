@@ -1,5 +1,4 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import auth from '@react-native-firebase/auth'
 import { Alert, View } from 'react-native'
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
@@ -7,6 +6,7 @@ import * as yup from 'yup'
 
 import { ControlledInput } from '@components/Controllers/ControlledInput'
 import { Button } from '@components/Controllers/Button'
+import { auth } from '@services/auth'
 
 type SignInData = {
   email: string
@@ -30,17 +30,11 @@ export function SignInForm() {
 
   function handleSignIn(data: SignInData) {
     setIsLoading(true)
+
     auth()
       .signInWithEmailAndPassword(data.email, data.password)
-      .then(() => {
-        console.log('Signed in!')
-      })
-      .catch((error) => {
-        Alert.alert('Opa! Deu erro hein!', error.message)
-      })
-      .finally(() => {
-        setIsLoading(false)
-      })
+      .catch(() => Alert.alert('Opa! Deu erro hein!'))
+      .finally(() => setIsLoading(false))
   }
 
   return (
@@ -52,6 +46,7 @@ export function SignInForm() {
         control={control}
         iconName="mail"
         name="email"
+        autoCapitalize="none"
         error={errors.email?.message}
       />
       <ControlledInput
@@ -61,6 +56,7 @@ export function SignInForm() {
         iconName="lock"
         name="password"
         secureTextEntry
+        autoCapitalize="none"
         error={errors.password?.message}
       />
       <Button
