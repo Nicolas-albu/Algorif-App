@@ -7,6 +7,9 @@
       "@components/*": [
         "./src/components/*"
       ],
+      "@services/*": [
+        "./src/services/*"
+      ],
       "@screens/*": [
         "./src/screens/*"
       ],
