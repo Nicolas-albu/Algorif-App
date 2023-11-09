@@ -1,6 +1,6 @@
 import { getDocs, collection } from 'firebase/firestore'
 
-import { database } from '../services/firebase'
+import { database } from '@services/firebase'
 
 export const CategoryService = {
   getAll: async function (): Promise<string[]> {
