@@ -1,17 +1,26 @@
-import { TouchableOpacity, Text } from 'react-native'
+import {
+  TouchableOpacity,
+  ButtonProps as TouchableOpacityProps,
+  Text,
+} from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'
 
 import { twMerge } from 'tailwind-merge'
 import { styled } from 'nativewind'
 import React from 'react'
 
-type ItemProps = {
+type CategoryProps = TouchableOpacityProps & {
   title: string
   className?: string
   iconName: React.ComponentProps<typeof MaterialIcons>['name']
 }
 
-function ItemStyled({ title, className, iconName, ...rest }: ItemProps) {
+function CategoryStyled({
+  title,
+  className,
+  iconName,
+  ...rest
+}: CategoryProps) {
   return (
     <TouchableOpacity
       className={twMerge('p-5 rounded-lg bg-blue-200 flex-row', className)}
@@ -23,4 +32,4 @@ function ItemStyled({ title, className, iconName, ...rest }: ItemProps) {
   )
 }
 
-export const Item = styled(ItemStyled)
+export const Category = styled(CategoryStyled)

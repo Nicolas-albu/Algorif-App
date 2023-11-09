@@ -1,32 +1,32 @@
-import { FlatList, Text, View } from 'react-native'
+import { FlatList, View } from 'react-native'
 import { useEffect, useState } from 'react'
 
+import { QuestionService, QuestionTypeFirestore } from '@services/questions'
 import { Container } from '@components/Controllers/Container'
-import { CategoryService } from '@services/categories'
-import { Item } from '@components/Controllers/Item'
+import { Question } from '@components/Controllers/Question'
 
-export function Questions() {
-  const [categories, setCategories] = useState<string[]>([])
+type QuestionProps = {
+  topicName: string
+}
+
+export function Questions({ topicName }: QuestionProps) {
+  const [questions, setQuestions] = useState<QuestionTypeFirestore[]>([])
 
   useEffect(() => {
     const fetchData = async () => {
-      const fetchedCategories = await CategoryService.getAll()
-      setCategories(fetchedCategories)
+      const fetchedQuestions = await QuestionService.getQuestions(topicName)
+      setQuestions(fetchedQuestions)
     }
-
     fetchData()
   }, [])
 
   return (
     <Container>
-      <Text className="mt-20 ml-5 mb-3 text-4xl font-bold text-white-200">
-        Tópicos
-      </Text>
-      <View className="flex-1">
+      <View className="flex-1 mt-10">
         <FlatList
-          data={categories.map((category) => ({ key: category }))}
+          data={questions.map((question) => ({ key: question.title }))}
           renderItem={({ item }) => (
-            <Item className="my-2 mx-5" title={item.key} iconName="category" />
+            <Question title={item.key} className="my-2 mx-5" />
           )}
         />
       </View>

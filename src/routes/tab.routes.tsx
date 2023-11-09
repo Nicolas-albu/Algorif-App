@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Feather, MaterialCommunityIcons } from '@expo/vector-icons'
 
-import { Questions } from '@screens/Questions'
+import { QuestionRoutes } from './questions.routes'
 import { Account } from '@screens/Account'
 import { Home } from '@screens/Home'
 
@@ -35,8 +35,8 @@ export function TabRoutes() {
         }}
       />
       <Tab.Screen
-        name="Questions"
-        component={Questions}
+        name="Exercises"
+        component={QuestionRoutes}
         options={{
           tabBarIcon: ({ color, size, focused }) => (
             <MaterialCommunityIcons
