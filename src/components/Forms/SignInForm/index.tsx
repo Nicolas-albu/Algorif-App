@@ -1,40 +1,72 @@
-import { Button } from '@components/Controllers/Button'
-import { Input } from '@components/Controllers/Input'
+import { yupResolver } from '@hookform/resolvers/yup'
+import auth from '@react-native-firebase/auth'
+import { Alert, View } from 'react-native'
+import { useForm } from 'react-hook-form'
 import { useState } from 'react'
+import * as yup from 'yup'
 
-import { View } from 'react-native'
+import { ControlledInput } from '@components/Controllers/ControlledInput'
+import { Button } from '@components/Controllers/Button'
+
+type SignInData = {
+  email: string
+  password: string
+}
+
+const schema = yup.object({
+  email: yup.string().email('E-mail inválido').required('E-mail obrigatório'),
+  password: yup.string().required('Senha obrigatória'),
+})
 
 export function SignInForm() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<SignInData>({
+    resolver: yupResolver(schema),
+  })
   const [isLoading, setIsLoading] = useState(false)
 
-  function handleSignIn() {
+  function handleSignIn(data: SignInData) {
     setIsLoading(true)
+    auth()
+      .signInWithEmailAndPassword(data.email, data.password)
+      .then(() => {
+        console.log('Signed in!')
+      })
+      .catch((error) => {
+        Alert.alert('Opa! Deu erro hein!', error.message)
+      })
+      .finally(() => {
+        setIsLoading(false)
+      })
   }
 
   return (
     <View>
-      <Input
-        classNameExtern="mb-4"
+      <ControlledInput
         placeholder="Endereço de e-mail"
-        value={email}
-        iconName="mail"
-        onChangeText={(text) => setEmail(text)}
         keyboardType="email-address"
-        secureTextEntry={false}
+        classNameExtern="mb-4"
+        control={control}
+        iconName="mail"
+        name="email"
+        error={errors.email?.message}
       />
-      <Input
+      <ControlledInput
         placeholder="Senha"
-        value={password}
+        classNameExtern="mb-8"
+        control={control}
         iconName="lock"
-        onChangeText={(text) => setPassword(text)}
-        secureTextEntry={true}
+        name="password"
+        secureTextEntry
+        error={errors.password?.message}
       />
       <Button
-        className="mt-8 mb-20 mx-20"
+        className="mt-8 mx-20"
         title="Entrar"
-        onPress={handleSignIn}
+        onPress={handleSubmit(handleSignIn)}
         isLoading={isLoading}
       />
     </View>

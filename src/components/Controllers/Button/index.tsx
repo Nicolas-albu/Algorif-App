@@ -21,12 +21,12 @@ function ButtonStyled({
   return (
     <TouchableOpacity
       className={twMerge(
-        'py-3 justify-center items-center bg-blue-100 rounded-lg border border-green-100',
+        'py-3 justify-center items-center bg-green-100 rounded-lg border border-green-100',
         className,
       )}
       {...rest}
     >
-      <Text className="text-center text-green-100 text-xl font-bold">
+      <Text className="text-center text-blue-100 text-xl font-bold">
         {isLoading ? '...' : title}
       </Text>
     </TouchableOpacity>
