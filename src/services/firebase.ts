@@ -11,6 +11,7 @@ const firebaseConfig = {
   messagingSenderId:
     process.env.REACT_NATIVE_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.REACT_NATIVE_PUBLIC_FIREBASE_APP_ID,
+  databaseURL: process.env.REACT_NATIVE_PUBLIC_FIREBASE_DATABASE_URL,
 }
 
 const app = initializeApp(firebaseConfig)
