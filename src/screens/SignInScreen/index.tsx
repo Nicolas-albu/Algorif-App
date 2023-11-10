@@ -11,7 +11,7 @@ import { Content } from '@components/Controllers/Content'
 import { SignInForm } from '@components/Forms/SignInForm'
 import { Title } from '@components/Controllers/Title'
 
-export function SignIn() {
+export function SignInScreen() {
   return (
     <Container className="justify-center">
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>

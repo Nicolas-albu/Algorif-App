@@ -1,15 +1,30 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-import { Categories } from '@screens/Categories'
-import { Questions } from '@screens/Questions'
+import { ListCategoriesScreen } from '@screens/ListCategoriesScreen'
+import { ListQuestionsScreen } from '@screens/ListQuestionsScreen'
+import { QuestionScreen } from '@screens/QuestionScreen'
+import { FirebaseTypes } from '@services/firebase'
 
-const Stack = createNativeStackNavigator()
+export type QuestionRoutesParamList = {
+  ListCategories: undefined
+  ListQuestions: { category: string }
+  Question: { data: FirebaseTypes.Question }
+}
+
+const QuestionStack = createNativeStackNavigator<QuestionRoutesParamList>()
 
 export function QuestionRoutes() {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Categories" component={Categories} />
-      <Stack.Screen name="Questions" component={Questions} />
-    </Stack.Navigator>
+    <QuestionStack.Navigator screenOptions={{ headerShown: false }}>
+      <QuestionStack.Screen
+        name="ListCategories"
+        component={ListCategoriesScreen}
+      />
+      <QuestionStack.Screen
+        name="ListQuestions"
+        component={ListQuestionsScreen}
+      />
+      <QuestionStack.Screen name="Question" component={QuestionScreen} />
+    </QuestionStack.Navigator>
   )
 }

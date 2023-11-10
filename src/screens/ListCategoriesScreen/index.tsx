@@ -1,15 +1,16 @@
-import { NativeStackNavigationProp } from '@react-navigation/native-stack'
-import { useNavigation } from '@react-navigation/native'
+import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { FlatList, Text, View } from 'react-native'
 import { useEffect, useState } from 'react'
 
+import { QuestionRoutesParamList } from 'src/routes/questions.routes'
+import { CardCategory } from '@components/Controllers/CardCategory'
 import { Container } from '@components/Controllers/Container'
-import { Category } from '@components/Controllers/Category'
 import { CategoryService } from '@services/categories'
 
-export function Categories() {
+type Props = NativeStackScreenProps<QuestionRoutesParamList, 'ListCategories'>
+
+export function ListCategoriesScreen({ navigation }: Props) {
   const [categories, setCategories] = useState<string[]>([])
-  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,6 +21,8 @@ export function Categories() {
     fetchData()
   }, [])
 
+  const categoriesInList = categories.map((category) => ({ key: category }))
+
   return (
     <Container>
       <Text className="mt-20 ml-5 mb-3 text-4xl font-bold text-white-200">
@@ -27,14 +30,13 @@ export function Categories() {
       </Text>
       <View className="flex-1">
         <FlatList
-          data={categories.map((category) => ({ key: category }))}
+          data={categoriesInList}
           renderItem={({ item }) => (
-            <Category
+            <CardCategory
               className="my-2 mx-5"
               title={item.key}
-              iconName="category"
               onPress={() => {
-                navigation.navigate('Questions', { topicName: item.key })
+                navigation.navigate('ListQuestions', { category: item.key })
               }}
             />
           )}

@@ -1,15 +1,21 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Feather, MaterialCommunityIcons } from '@expo/vector-icons'
 
+import { AccountScreen } from '@screens/AccountScreen'
 import { QuestionRoutes } from './questions.routes'
-import { Account } from '@screens/Account'
-import { Home } from '@screens/Home'
+import { HomeScreen } from '@screens/HomeScreen'
 
-const Tab = createBottomTabNavigator()
+export type MainRoutesParamList = {
+  Home: undefined
+  Questions: undefined
+  Account: undefined
+}
 
-export function TabRoutes() {
+const MainTab = createBottomTabNavigator<MainRoutesParamList>()
+
+export function MainRoutes() {
   return (
-    <Tab.Navigator
+    <MainTab.Navigator
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
@@ -20,9 +26,9 @@ export function TabRoutes() {
         },
       }}
     >
-      <Tab.Screen
+      <MainTab.Screen
         name="Home"
-        component={Home}
+        component={HomeScreen}
         options={{
           tabBarIcon: ({ color, size, focused }) => (
             <Feather
@@ -34,8 +40,8 @@ export function TabRoutes() {
           tabBarShowLabel: false,
         }}
       />
-      <Tab.Screen
-        name="Exercises"
+      <MainTab.Screen
+        name="Questions"
         component={QuestionRoutes}
         options={{
           tabBarIcon: ({ color, size, focused }) => (
@@ -48,9 +54,9 @@ export function TabRoutes() {
           tabBarShowLabel: false,
         }}
       />
-      <Tab.Screen
+      <MainTab.Screen
         name="Account"
-        component={Account}
+        component={AccountScreen}
         options={{
           tabBarIcon: ({ color, size, focused }) => (
             <Feather
@@ -62,6 +68,6 @@ export function TabRoutes() {
           tabBarShowLabel: false,
         }}
       />
-    </Tab.Navigator>
+    </MainTab.Navigator>
   )
 }

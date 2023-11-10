@@ -1,7 +1,10 @@
+/* eslint-disable @typescript-eslint/no-namespace */
 import { getFirestore } from 'firebase/firestore'
 import { getStorage } from 'firebase/storage'
 import { initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
+
+export { User } from '@firebase/auth'
 
 const firebaseConfig = {
   apiKey: process.env.REACT_NATIVE_PUBLIC_FIREBASE_API_KEY,
@@ -21,3 +24,21 @@ export const database = getFirestore(app)
 export const auth = getAuth(app)
 
 export const storage = getStorage(app)
+
+export namespace FirebaseTypes {
+  export type Test = {
+    input: string
+    output: string
+  }
+
+  export type Question = {
+    title: string
+    topic: string
+    code: string
+    creator: string
+    description: string
+    detailedDescription: string
+    difficulty: string
+    test: Test[]
+  }
+}

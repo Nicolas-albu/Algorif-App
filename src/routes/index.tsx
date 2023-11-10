@@ -1,9 +1,9 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { useEffect, useState } from 'react'
-import { User } from '@firebase/auth'
 
 import { AuthRoutes } from './auth.routes'
-import { TabRoutes } from './tab.routes'
+import { MainRoutes } from './main.routes'
+import { User } from '@services/firebase'
 import { auth } from '@services/auth'
 
 export function Routes() {
@@ -17,7 +17,7 @@ export function Routes() {
 
   return (
     <NavigationContainer>
-      {user ? <TabRoutes /> : <AuthRoutes />}
+      {user ? <MainRoutes /> : <AuthRoutes />}
     </NavigationContainer>
   )
 }
