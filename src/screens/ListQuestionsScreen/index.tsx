@@ -11,8 +11,8 @@ import { DatabaseTypes } from '@services/database'
 type Props = NativeStackScreenProps<QuestionRoutesParamList, 'ListQuestions'>
 
 export function ListQuestionsScreen({ navigation, route }: Props) {
-  const [isLoading, setIsLoading] = useState(true)
   const [questions, setQuestions] = useState<DatabaseTypes.Question[]>([])
+  const [isLoading, setIsLoading] = useState(true)
   const { category } = route.params
 
   useEffect(() => {
