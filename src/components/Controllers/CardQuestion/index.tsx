@@ -1,10 +1,10 @@
 import { Text, TouchableOpacity, View } from 'react-native'
-import { FirebaseTypes } from '@services/firebase'
+import { DatabaseTypes } from '@services/database'
 import { twMerge } from 'tailwind-merge'
 import { styled } from 'nativewind'
 
 type QuestionProps = {
-  data: FirebaseTypes.Question
+  data: DatabaseTypes.Question
   onPress?: () => void
   className?: string
 }

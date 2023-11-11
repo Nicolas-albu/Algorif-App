@@ -6,13 +6,13 @@ import { QuestionRoutesParamList } from 'src/routes/questions.routes'
 import { CardQuestion } from '@components/Controllers/CardQuestion'
 import { Container } from '@components/Controllers/Container'
 import { QuestionService } from '@services/questions'
-import { FirebaseTypes } from '@services/firebase'
+import { DatabaseTypes } from '@services/database'
 
 type Props = NativeStackScreenProps<QuestionRoutesParamList, 'ListQuestions'>
 
 export function ListQuestionsScreen({ navigation, route }: Props) {
   const [isLoading, setIsLoading] = useState(true)
-  const [questions, setQuestions] = useState<FirebaseTypes.Question[]>([])
+  const [questions, setQuestions] = useState<DatabaseTypes.Question[]>([])
   const { category } = route.params
 
   useEffect(() => {
