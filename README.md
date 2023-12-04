@@ -1,6 +1,4 @@
-# 💼🔎 FlavJob - Finder Job
-Aplicação Mobile desenvolvido com React Native para conclusão de nota do 2° bimestre de TEPI (Tópicos Especiais de Projetos Integrador).
+# https://reactnavigation.org/docs/typescript/#type-checking-the-navigator
 
-## :rotating_light: **Licença**
 
-Este projeto está licenciado sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para obter detalhes.
+Usar o useContext para declarar a categoria atual, e a tela Questions renderizar todas as questões desta categoria.
